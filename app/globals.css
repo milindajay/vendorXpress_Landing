@@ -63,6 +63,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -74,4 +75,8 @@
 
 .font-arapey {
   font-family: "Arapey", serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
