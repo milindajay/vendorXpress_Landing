@@ -73,10 +73,75 @@
   font-family: "Inter", sans-serif;
 }
 
-.font-arapey {
-  font-family: "Arapey", serif;
+.font-protest {
+  font-family: "Protest Riot", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Floating shapes animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(90deg);
+  }
+}
+
+@keyframes floatFast {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(270deg);
+  }
+}
+
+.floating-shape {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-shape-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.floating-shape-fast {
+  animation: floatFast 4s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

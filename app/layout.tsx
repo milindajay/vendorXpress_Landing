@@ -10,9 +10,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "VendoXpress - Commercial Massage Chair Solutions",
-  description: "Transform your business with state-of-the-art commercial massage chairs. Trusted supplier in the UAE.",
-    generator: 'v0.dev'
+  title: "VendoXpress - Smart Vending Solutions UAE",
+  description:
+    "Transform your business with innovative vending machines - massage chairs, photo booths, gaming, and more. Trusted partner across the UAE.",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>

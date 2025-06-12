@@ -3,39 +3,24 @@
 import type React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import {
-  Phone,
-  Mail,
-  MapPin,
-  CheckCircle,
-  Smartphone,
-  CreditCard,
-  Wifi,
-  Star,
-  Building,
-  Plane,
-  Car,
-  ShoppingBag,
-  Film,
-  Hotel,
-  Gamepad2,
-  Train,
   ArrowRight,
   Sparkles,
-  Wrench,
-  Settings,
-  Truck,
-  Globe,
   BarChart3,
+  Shield,
+  Zap,
+  Heart,
+  CheckCircle,
+  TrendingUp,
+  Clock,
+  Settings,
   DollarSign,
-  FileX,
-  Eye,
+  Mail,
 } from "lucide-react"
 import { useState, useEffect } from "react"
 
@@ -65,577 +50,750 @@ export default function VendoXpressLanding() {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
+  const handleSalesContact = () => {
+    window.location.href =
+      "mailto:sales@vendoxpress.com?subject=Partnership Inquiry&body=Hello, I'm interested in learning more about VendoXpress partnership opportunities."
+  }
+
+  const handleGeneralContact = () => {
+    window.location.href =
+      "mailto:contact@vendoxpress.com?subject=General Inquiry&body=Hello, I would like to know more about VendoXpress services."
+  }
+
   return (
-    <div className="min-h-screen bg-white font-inter">
+    <div className="min-h-screen bg-white font-inter overflow-x-hidden">
+      {/* Floating Background Shapes */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-20 left-10 w-16 h-16 bg-pink-300/20 rounded-full floating-shape"></div>
+        <div className="absolute top-40 right-20 w-12 h-12 bg-blue-400/20 rounded-lg floating-shape-slow"></div>
+        <div className="absolute bottom-40 left-20 w-20 h-20 bg-yellow-300/20 rounded-full floating-shape-fast"></div>
+        <div className="absolute top-60 left-1/3 w-8 h-8 bg-green-400/20 rounded-full floating-shape"></div>
+        <div className="absolute bottom-60 right-1/4 w-14 h-14 bg-purple-400/20 rounded-lg floating-shape-slow"></div>
+        <div className="absolute top-1/2 right-10 w-10 h-10 bg-orange-400/20 rounded-full floating-shape-fast"></div>
+      </div>
+
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-200">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-pink-100">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
             <img src="/images/vendoxpress-logo-new.png" alt="VendoXpress Logo" className="h-10 w-auto" />
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            {["About", "Services", "Partnership", "Contact"].map((item) => (
+            {["About", "Products", "Services", "Partnership"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-blue-600 font-medium text-sm transition-all duration-300 relative group"
+                className="text-gray-700 hover:text-pink-600 font-medium text-sm transition-all duration-300 relative group"
               >
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
+            <Button
+              onClick={handleSalesContact}
+              className="bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 px-6 py-2 rounded-full"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Contact
+            </Button>
           </div>
+          <Button className="md:hidden bg-gradient-to-r from-pink-500 to-purple-600 text-white">Menu</Button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-            <source src="/videos/vendoxpress-demo.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+        <div className="container mx-auto px-4 relative z-10 pt-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div
+              className={`transform transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+            >
+              <Badge className="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium mb-6 px-6 py-3 rounded-full shadow-lg transition-all duration-500 text-base">
+                <Sparkles className="w-5 h-5 mr-2" />
+                Smart Vending Solutions
+              </Badge>
+              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 font-protest">
+                Profitable, <span className="animated-gradient">innovative</span> vending machines
+              </h1>
+              <p className="text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
+                Transform your space into a revenue generator with zero investment. From massage chairs to gaming
+                machines - we handle everything.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  onClick={handleSalesContact}
+                  size="lg"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-10 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
+                >
+                  Start Partnership
+                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-pink-500 text-pink-600 hover:bg-pink-50 font-semibold px-10 py-4 rounded-full transition-all duration-500 text-lg"
+                >
+                  View Products
+                </Button>
+              </div>
+            </div>
 
-        {/* Floating Elements */}
-        <div className="absolute inset-0 z-5">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-32 right-16 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-300/15 rounded-full blur-lg animate-pulse delay-500"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10 pt-20 text-center">
-          <div
-            className={`max-w-4xl mx-auto transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-          >
-            <Badge className="bg-gradient-to-r from-blue-400 to-purple-600 hover:bg-gradient-to-l hover:from-blue-400 hover:to-purple-600 text-white font-medium mb-6 px-4 py-2 rounded-full shadow-lg transition-all duration-500">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Commercial Massage Chair Solutions
-            </Badge>
-            <h1 className="text-3xl lg:text-4xl font-normal mb-6 leading-tight text-white font-arapey">
-              Elevate Your Business to{" "}
-              <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-                Higher Satisfaction
-              </span>
-            </h1>
-            <p className="text-lg lg:text-xl text-gray-200 mb-8 leading-relaxed font-extralight max-w-3xl mx-auto">
-              Transform your business with state-of-the-art commercial massage chairs. Trusted supplier in the UAE
-              offering modern designs, advanced technology, and exceptional customer service.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-purple-600 text-white font-semibold px-8 py-4 rounded-full shadow-2xl transition-all duration-500 group"
-              >
-                Start Partnership
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-              <Button
-                size="lg"
-                className="bg-white hover:bg-gradient-to-r hover:from-gray-50 hover:to-white text-gray-900 hover:text-gray-800 font-semibold px-8 py-4 rounded-full transition-all duration-500 shadow-lg hover:shadow-xl"
-              >
-                Learn More
-              </Button>
+            {/* Right Content - Product Showcase */}
+            <div
+              className={`transform transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
+            >
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/20 to-purple-600/20 rounded-3xl blur-xl"></div>
+                <img
+                  src="/images/massage-chair-features.png"
+                  alt="VendoXpress Vending Solutions"
+                  className="relative w-full max-w-lg mx-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-pink-400 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-pink-500 rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Attention Banner */}
+      <section className="py-6 bg-gradient-to-r from-purple-900 via-pink-900 to-blue-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')]"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div>
+              <h3 className="text-2xl font-bold mb-2 font-protest">Ready to earn passive income?</h3>
+              <p className="text-purple-200">500+ partners already generating revenue daily</p>
+            </div>
+            <Button
+              onClick={handleSalesContact}
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-500 mt-4 md:mt-0"
+            >
+              Get Started Now
+            </Button>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-600"></div>
-
+      <section id="about" className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="bg-gradient-to-r from-blue-100 to-purple-100 hover:bg-gradient-to-l hover:from-blue-100 hover:to-purple-100 text-blue-800 font-medium mb-6 px-4 py-2 rounded-full transition-all duration-500">
-              About Us
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-normal text-gray-900 mb-6 leading-tight font-arapey">
-              About{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                VendoXpress
-              </span>{" "}
-              LLC
-            </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed">
-              We are a trusted supplier of commercial massage chairs in the UAE, offering state-of-the-art technology
-              and modern designs that transform businesses.
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div>
+              <Badge className="bg-gradient-to-r from-pink-100 to-purple-100 text-pink-800 font-medium mb-6 px-4 py-2 rounded-full">
+                About VendoXpress
+              </Badge>
+              <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
+                Your vending solution delivered instantly
+              </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: CheckCircle,
-                title: "Professionalism",
-                desc: "Exceptional service standards and business ethics",
-                color: "from-blue-400 to-blue-600",
-              },
-              {
-                icon: Star,
-                title: "Advanced Equipment",
-                desc: "State-of-the-art massage chair technology",
-                color: "from-purple-400 to-purple-600",
-              },
-              {
-                icon: Building,
-                title: "Diverse Range",
-                desc: "Comprehensive product portfolio for all needs",
-                color: "from-green-400 to-green-600",
-              },
-              {
-                icon: Phone,
-                title: "Prompt Response",
-                desc: "Quick support and outstanding customer service",
-                color: "from-yellow-400 to-yellow-600",
-              },
-            ].map((item, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:bg-white transform hover:-translate-y-2"
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                VendoXpress transforms spaces into profit centers with zero investment from partners. We handle
+                installation, maintenance, and operations while you earn monthly revenue.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8 mb-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-pink-600 mb-2">100%</div>
+                  <div className="text-sm text-gray-600">Success Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 mb-2">500+</div>
+                  <div className="text-sm text-gray-600">Installations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                  <div className="text-sm text-gray-600">Support</div>
+                </div>
+              </div>
+
+              <Button
+                onClick={handleSalesContact}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-500"
               >
-                <CardContent className="pt-8 text-center">
-                  <div
-                    className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
-                  >
-                    <item.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-3 text-gray-900 group-hover:text-gray-700 transition-colors duration-300 font-arapey">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm font-light">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
+                Start Earning Today
+              </Button>
+            </div>
+
+            {/* Right Content */}
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/20 to-purple-600/20 rounded-3xl blur-xl"></div>
+              <img
+                src="/images/business-locations.png"
+                alt="VendoXpress Business Solutions"
+                className="relative w-full rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Target Markets */}
-      <section className="py-20 bg-white relative">
+      {/* Products Section */}
+      <section id="products" className="py-20 bg-gradient-to-br from-pink-50 to-purple-50 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="bg-gradient-to-r from-purple-100 to-blue-200 hover:bg-gradient-to-l hover:from-purple-100 hover:to-blue-200 text-purple-800 font-medium mb-6 px-4 py-2 rounded-full transition-all duration-500">
-              Partnership Opportunities
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-normal text-gray-900 mb-6 leading-tight font-arapey">
-              Perfect{" "}
-              <span className="bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent">
-                Locations
-              </span>
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
+              Diverse vending solutions
             </h2>
-            <p className="text-lg text-gray-600 font-extralight">Ideal venues for commercial massage chairs</p>
+            <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto">
+              From wellness to entertainment, our machines generate revenue in any location.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-            {[
-              { icon: Plane, label: "Airports", color: "from-blue-400 to-blue-600" },
-              { icon: Train, label: "Metro Stations", color: "from-green-400 to-green-600" },
-              { icon: Car, label: "Service Centers", color: "from-red-400 to-red-600" },
-              { icon: Film, label: "Cinemas", color: "from-purple-400 to-purple-600" },
-              { icon: ShoppingBag, label: "Shopping Malls", color: "from-pink-400 to-pink-600" },
-              { icon: Building, label: "Business Venues", color: "from-indigo-400 to-indigo-600" },
-              { icon: Gamepad2, label: "Gaming Centers", color: "from-orange-400 to-orange-600" },
-              { icon: Hotel, label: "Hotels", color: "from-yellow-400 to-yellow-600" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="group text-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-gray-50 hover:to-white transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl"
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}
-                >
-                  <item.icon className="w-8 h-8 text-white" />
+          {/* Floating Product Icons */}
+          <div className="relative h-96 mb-16">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-full max-w-4xl h-full">
+                {/* Central Hand */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+                  <div className="text-6xl">🤝</div>
                 </div>
-                <p className="font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300 text-sm">
-                  {item.label}
-                </p>
+
+                {/* Floating Product Icons */}
+                <div className="absolute top-10 left-10 floating-shape">
+                  <div className="w-16 h-16 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                    💆‍♀️
+                  </div>
+                </div>
+                <div className="absolute top-20 right-20 floating-shape-slow">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg flex items-center justify-center text-white text-xl shadow-lg">
+                    📸
+                  </div>
+                </div>
+                <div className="absolute top-40 left-1/4 floating-shape-fast">
+                  <div className="w-14 h-14 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg">
+                    🥊
+                  </div>
+                </div>
+                <div className="absolute top-60 right-1/3 floating-shape">
+                  <div className="w-18 h-18 bg-gradient-to-r from-green-400 to-green-600 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg p-2">
+                    ☕
+                  </div>
+                </div>
+                <div className="absolute top-32 left-1/2 floating-shape-slow">
+                  <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white text-sm shadow-lg">
+                    🎮
+                  </div>
+                </div>
+                <div className="absolute top-16 left-1/3 floating-shape-fast">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white text-lg shadow-lg">
+                    🍿
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+
+          {/* Product Grid with Images */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "💆‍♀️",
+                title: "Massage Chairs",
+                desc: "Premium wellness experiences with AI-powered programs and cashless payments",
+                image: "/images/massage-chair-features.png",
+                features: ["AI massage programs", "Zero gravity", "Heated therapy", "Mobile payments"],
+                color: "from-pink-400 to-pink-600",
+              },
+              {
+                icon: "📸",
+                title: "Photo Booths",
+                desc: "Interactive entertainment with instant printing and social media sharing",
+                image: "/images/partnership-success.png",
+                features: ["4K cameras", "Social sharing", "Custom branding", "Green screen"],
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                icon: "🥊",
+                title: "Boxing Arcade",
+                desc: "High-energy gaming with strength testing and competitive scoring",
+                image: "/images/massage-chair-hero.png",
+                features: ["Strength measurement", "Leaderboards", "LED displays", "Sound effects"],
+                color: "from-purple-400 to-purple-600",
+              },
+              {
+                icon: "☕",
+                title: "Coffee Machines",
+                desc: "Gourmet coffee with fresh grinding and multiple beverage options",
+                image: "/images/business-locations.png",
+                features: ["Fresh grinding", "15+ options", "Temperature control", "Milk frothing"],
+                color: "from-amber-400 to-amber-600",
+              },
+              {
+                icon: "🎮",
+                title: "Gaming Machines",
+                desc: "Interactive entertainment with touch screens and prize dispensing",
+                image: "/images/vendoxpress-logo.png",
+                features: ["Touch interface", "Multiplayer", "Prize system", "All ages"],
+                color: "from-green-400 to-green-600",
+              },
+              {
+                icon: "🍿",
+                title: "Smart Vending",
+                desc: "Intelligent food and beverage machines with inventory tracking",
+                image: "/images/massage-chair-features.png",
+                features: ["Temperature zones", "Healthy options", "Smart alerts", "Nutrition info"],
+                color: "from-orange-400 to-orange-600",
+              },
+            ].map((product, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white hover:bg-gradient-to-br hover:from-white hover:to-gray-50 transform hover:-translate-y-2 overflow-hidden"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${product.color} rounded-full flex items-center justify-center text-white text-xl shadow-lg`}
+                    >
+                      {product.icon}
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-xl mb-3 text-gray-900 font-protest">{product.title}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4 text-sm">{product.desc}</p>
+
+                  <div className="space-y-2 mb-6">
+                    {product.features.map((feature, i) => (
+                      <div key={i} className="flex items-center text-xs text-gray-600">
+                        <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button
+                    onClick={handleSalesContact}
+                    variant="outline"
+                    className="w-full border-2 border-pink-500 text-pink-600 hover:bg-pink-50 rounded-full px-6"
+                  >
+                    Get Quote
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-16">
+            <Button
+              onClick={handleSalesContact}
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-12 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              Request Product Catalog
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Steps */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
+              Four simple steps
+            </h2>
+            <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto">
+              From contact to earning revenue - our process is designed for speed and simplicity.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                step: "Step 1",
+                title: "Contact",
+                desc: "Reach out to discuss your space and goals",
+                image: "/images/massage-chair-hero.png",
+              },
+              {
+                step: "Step 2",
+                title: "Assessment",
+                desc: "We evaluate your location and recommend solutions",
+                image: "/images/business-locations.png",
+              },
+              {
+                step: "Step 3",
+                title: "Installation",
+                desc: "Professional setup with minimal disruption",
+                image: "/images/partnership-success.png",
+              },
+              {
+                step: "Step 4",
+                title: "Earn",
+                desc: "Start generating revenue immediately",
+                image: "/images/massage-chair-features.png",
+              },
+            ].map((item, index) => (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-0 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <Badge className="bg-gradient-to-r from-pink-500 to-purple-600 text-white mb-3">{item.step}</Badge>
+                  <h3 className="font-bold text-lg mb-3 text-gray-900 font-protest">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-16">
+            <Button
+              onClick={handleSalesContact}
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-12 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
+            >
+              Start Your Journey
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
+              Fully automated solutions
+            </h2>
+            <p className="text-xl text-gray-600 font-light max-w-4xl mx-auto">
+              Smart technology ensures optimal performance and maximum profitability with minimal effort.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                {
+                  icon: Zap,
+                  title: "Smart Control",
+                  desc: "IoT technology for remote monitoring and maintenance",
+                  color: "from-blue-400 to-blue-600",
+                },
+                {
+                  icon: Heart,
+                  title: "User Experience",
+                  desc: "Intuitive interfaces with multi-language support",
+                  color: "from-pink-400 to-pink-600",
+                },
+                {
+                  icon: Shield,
+                  title: "Secure Payments",
+                  desc: "Bank-grade security with contactless options",
+                  color: "from-green-400 to-green-600",
+                },
+                {
+                  icon: BarChart3,
+                  title: "Real-time Analytics",
+                  desc: "Comprehensive reporting and insights",
+                  color: "from-purple-400 to-purple-600",
+                },
+              ].map((feature, index) => (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-0 bg-white">
+                  <CardContent className="p-6 text-center">
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-bold text-sm mb-2 text-gray-900">{feature.title}</h3>
+                    <p className="text-gray-600 text-xs leading-relaxed">{feature.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/20 to-purple-600/20 rounded-3xl blur-xl"></div>
+              <img
+                src="/images/partnership-success.png"
+                alt="Customer using VendoXpress machine"
+                className="relative w-full rounded-3xl shadow-2xl"
+              />
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-16">
+            <Button
+              onClick={handleSalesContact}
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-12 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              Learn About Technology
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Partnership Benefits */}
-      <section
-        id="partnership"
-        className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden"
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <Badge className="bg-gradient-to-r from-blue-400 to-purple-600 hover:bg-gradient-to-l hover:from-blue-400 hover:to-purple-600 text-white font-medium mb-6 px-4 py-2 rounded-full shadow-lg transition-all duration-500">
-              Partnership Benefits
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-normal text-gray-900 mb-6 leading-tight font-arapey">
-              Start Your{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Journey
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 font-extralight">With just one square meter of space</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Wrench, text: "Free Installation", color: "from-blue-400 to-blue-600" },
-              { icon: Settings, text: "Free Maintenance", color: "from-green-400 to-green-600" },
-              { icon: Truck, text: "Free Removal", color: "from-red-400 to-red-600" },
-              { icon: Globe, text: "Unlimited Online Access", color: "from-purple-400 to-purple-600" },
-              { icon: BarChart3, text: "Monthly Sales Reports", color: "from-indigo-400 to-indigo-600" },
-              { icon: DollarSign, text: "Monthly Profit Transfer", color: "from-yellow-400 to-yellow-600" },
-              { icon: FileX, text: "No Contract Required", color: "from-pink-400 to-pink-600" },
-              { icon: Eye, text: "No Hidden Fees", color: "from-orange-400 to-orange-600" },
-            ].map((benefit, index) => (
-              <div
-                key={index}
-                className="group flex items-center space-x-4 bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 border border-gray-100/50 hover:border-gray-200"
-              >
-                <div
-                  className={`w-12 h-12 bg-gradient-to-r ${benefit.color} rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg`}
-                >
-                  <benefit.icon className="w-6 h-6 text-white" />
-                </div>
-                <span className="font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300 text-sm">
-                  {benefit.text}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Product Features */}
-      <section id="services" className="py-20 bg-white">
+      <section id="partnership" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="bg-gradient-to-r from-blue-100 to-purple-100 hover:bg-gradient-to-l hover:from-blue-100 hover:to-purple-100 text-blue-800 font-medium mb-6 px-4 py-2 rounded-full transition-all duration-500">
-              Advanced Technology
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-normal text-gray-900 mb-6 leading-tight font-arapey">
-              Cutting-Edge{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Features
-              </span>
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
+              Why choose VendoXpress
             </h2>
-            <p className="text-lg text-gray-600 font-extralight mb-12">
-              Advanced technology for ultimate customer satisfaction
+            <p className="text-xl text-gray-600 font-light max-w-4xl mx-auto">
+              Zero investment, guaranteed support, and proven results make us the perfect partner.
             </p>
           </div>
 
-          {/* Centered Image */}
-          <div className="text-center mb-12">
-            <div className="relative inline-block group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <img
-                src="/images/massage-chair-features.png"
-                alt="Massage Chair Features"
-                className="relative max-w-2xl w-full rounded-3xl shadow-2xl transform group-hover:scale-105 transition-all duration-500"
-              />
-            </div>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Smartphone, text: "Touch Screen Shortcut Keys", color: "from-blue-400 to-blue-600" },
-              { icon: CreditCard, text: "Cashless Payment Options", color: "from-green-400 to-green-600" },
-              { icon: Wifi, text: "USB & Wireless Charging", color: "from-purple-400 to-purple-600" },
-              { icon: CheckCircle, text: "SL Track Manipulator Movement", color: "from-yellow-400 to-yellow-600" },
-              { icon: CheckCircle, text: "Wave Airbag Massage Technology", color: "from-pink-400 to-pink-600" },
-              { icon: CheckCircle, text: "Zero Gravity Positioning", color: "from-indigo-400 to-indigo-600" },
-              { icon: CheckCircle, text: "Hollow Blow Molding Technology", color: "from-red-400 to-red-600" },
-              { icon: CheckCircle, text: "Multi-language Support", color: "from-orange-400 to-orange-600" },
-            ].map((feature, index) => (
+              {
+                icon: DollarSign,
+                title: "Zero Investment",
+                desc: "No upfront costs or equipment fees. We handle everything.",
+                color: "from-green-400 to-green-600",
+              },
+              {
+                icon: TrendingUp,
+                title: "Guaranteed Revenue",
+                desc: "Proven model with consistent monthly income sharing.",
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                icon: Settings,
+                title: "Complete Support",
+                desc: "Full maintenance, updates, and 24/7 monitoring included.",
+                color: "from-purple-400 to-purple-600",
+              },
+              {
+                icon: Clock,
+                title: "Quick Setup",
+                desc: "Installation completed within 24-48 hours.",
+                color: "from-orange-400 to-orange-600",
+              },
+              {
+                icon: BarChart3,
+                title: "Performance Tracking",
+                desc: "Real-time analytics and detailed monthly reports.",
+                color: "from-red-400 to-red-600",
+              },
+              {
+                icon: Shield,
+                title: "Risk-free",
+                desc: "Flexible terms with performance guarantees.",
+                color: "from-yellow-400 to-yellow-600",
+              },
+            ].map((benefit, index) => (
               <Card
                 key={index}
-                className="group text-center hover:shadow-2xl transition-all duration-500 border-0 bg-white hover:bg-gray-50 transform hover:-translate-y-2"
+                className="group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-white to-gray-50 hover:from-pink-50 hover:to-purple-50 transform hover:-translate-y-2"
               >
-                <CardContent className="pt-6">
+                <CardContent className="pt-8 text-center">
                   <div
-                    className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}
+                    className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
                   >
-                    <feature.icon className="w-6 h-6 text-white" />
+                    <benefit.icon className="w-8 h-8 text-white" />
                   </div>
-                  <p className="text-gray-700 font-light group-hover:text-gray-900 transition-colors duration-300 text-sm leading-relaxed">
-                    {feature.text}
-                  </p>
+                  <h3 className="font-bold text-lg mb-3 text-gray-900 group-hover:text-gray-700 transition-colors duration-300 font-protest">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm font-light">{benefit.desc}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Payment Methods */}
-          <div className="text-center">
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 shadow-lg max-w-2xl mx-auto">
-              <h4 className="font-normal text-lg mb-6 text-gray-900 font-arapey">Payment Methods Supported</h4>
-              <div className="flex flex-wrap justify-center gap-6">
-                <img
-                  src="/images/visa-logo.png"
-                  alt="Visa"
-                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-                />
-                <img
-                  src="/images/mastercard-logo.png"
-                  alt="Mastercard"
-                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-                />
-                <img
-                  src="/images/apple-pay-logo.png"
-                  alt="Apple Pay"
-                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-                />
-                <img
-                  src="/images/google-pay-logo.png"
-                  alt="Google Pay"
-                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-                />
-                <img
-                  src="/images/samsung-pay-logo.png"
-                  alt="Samsung Pay"
-                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-            </div>
+          {/* CTA Section */}
+          <div className="text-center mt-16">
+            <Button
+              onClick={handleSalesContact}
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-12 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              Become a Partner
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Lead Capture Form */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+      {/* Contact Form */}
+      <section className="py-20 bg-gradient-to-br from-purple-900 via-pink-900 to-blue-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')]"></div>
 
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <Badge className="bg-gradient-to-r from-blue-400 to-purple-600 hover:bg-gradient-to-l hover:from-blue-400 hover:to-purple-600 text-white font-medium mb-6 px-4 py-2 rounded-full shadow-lg transition-all duration-500">
-                Get Started Today
-              </Badge>
-              <h2 className="text-4xl lg:text-5xl font-normal mb-6 leading-tight font-arapey">
-                Ready to{" "}
-                <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                  Partner
-                </span>{" "}
-                with Us?
-              </h2>
-              <p className="text-lg text-gray-300 font-extralight">
-                Get in touch to learn more about our commercial massage chair solutions
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight font-protest">Ready to start earning?</h2>
+            <p className="text-xl text-purple-200 font-light">
+              Get personalized consultation and launch your vending business today
+            </p>
+          </div>
 
-            <Card className="bg-white/95 backdrop-blur-lg text-gray-900 border-0 shadow-2xl rounded-3xl overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-blue-50 to-purple-50 p-8">
-                <CardTitle className="text-2xl font-normal text-center text-gray-900 font-arapey">
-                  Request Partnership Information
-                </CardTitle>
-                <CardDescription className="text-center text-gray-600 text-base font-extralight">
-                  Fill out the form below and we'll contact you within 24 hours
-                </CardDescription>
-              </CardHeader>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-gray-700 font-medium text-sm">
-                        Full Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange("name", e.target.value)}
-                        placeholder="Enter your full name"
-                        required
-                        className="border-2 border-gray-200 focus:border-blue-400 rounded-xl p-3 transition-all duration-300 focus:shadow-lg text-sm"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-gray-700 font-medium text-sm">
-                        Email Address *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder="Enter your email"
-                        required
-                        className="border-2 border-gray-200 focus:border-blue-400 rounded-xl p-3 transition-all duration-300 focus:shadow-lg text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-gray-700 font-medium text-sm">
-                        Phone Number *
-                      </Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder="+971 XX XXX XXXX"
-                        required
-                        className="border-2 border-gray-200 focus:border-blue-400 rounded-xl p-3 transition-all duration-300 focus:shadow-lg text-sm"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="company" className="text-gray-700 font-medium text-sm">
-                        Company Name
-                      </Label>
-                      <Input
-                        id="company"
-                        value={formData.company}
-                        onChange={(e) => handleInputChange("company", e.target.value)}
-                        placeholder="Enter company name"
-                        className="border-2 border-gray-200 focus:border-blue-400 rounded-xl p-3 transition-all duration-300 focus:shadow-lg text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="businessType" className="text-gray-700 font-medium text-sm">
-                      Business Type
-                    </Label>
-                    <Select onValueChange={(value) => handleInputChange("businessType", value)}>
-                      <SelectTrigger className="border-2 border-gray-200 focus:border-blue-400 rounded-xl p-3 transition-all duration-300 text-sm">
-                        <SelectValue placeholder="Select your business type" />
-                      </SelectTrigger>
-                      <SelectContent className="rounded-xl border-2">
-                        <SelectItem value="airport">Airport</SelectItem>
-                        <SelectItem value="metro">Metro Station</SelectItem>
-                        <SelectItem value="service-center">Vehicle Service Center</SelectItem>
-                        <SelectItem value="cinema">Cinema</SelectItem>
-                        <SelectItem value="mall">Shopping Mall</SelectItem>
-                        <SelectItem value="business">Business Venue</SelectItem>
-                        <SelectItem value="gaming">Gaming Center</SelectItem>
-                        <SelectItem value="hotel">Hotel</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-gray-700 font-medium text-sm">
-                      Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => handleInputChange("message", e.target.value)}
-                      placeholder="Tell us about your requirements or ask any questions..."
-                      rows={4}
-                      className="border-2 border-gray-200 focus:border-blue-400 rounded-xl p-3 transition-all duration-300 focus:shadow-lg resize-none text-sm"
+                <h3 className="text-xl font-bold mb-4 text-white font-protest">Start Partnership</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <Label className="text-white/80 text-sm">Full Name</Label>
+                    <Input
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                      placeholder="Enter your full name"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange("name", e.target.value)}
                     />
                   </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-purple-600 text-white font-semibold py-3 rounded-xl shadow-2xl transition-all duration-500 group"
-                  >
-                    Submit Partnership Request
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div>
+                    <Label className="text-white/80 text-sm">Email Address</Label>
+                    <Input
+                      type="email"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                      placeholder="Enter your email address"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-white/80 text-sm">Phone Number</Label>
+                    <Input
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                      placeholder="+971 XX XXX XXXX"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange("phone", e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-white/80 text-sm">Business Details</Label>
+                    <Textarea
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                      placeholder="Tell us about your location and goals..."
+                      value={formData.message}
+                      onChange={(e) => handleInputChange("message", e.target.value)}
+                    />
+                  </div>
+                  <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-3 rounded-full">
+                    Submit Request
                   </Button>
                 </form>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="bg-gradient-to-r from-blue-100 to-purple-100 hover:bg-gradient-to-l hover:from-blue-100 hover:to-purple-100 text-blue-800 font-medium mb-6 px-4 py-2 rounded-full transition-all duration-500">
-              Get In Touch
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-normal text-gray-900 mb-6 leading-tight font-arapey">
-              Contact{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Our Team
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 font-extralight">We're here to help you get started</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                icon: MapPin,
-                title: "Address",
-                content: [
-                  "Office 202 / 2nd Floor",
-                  "Bright Idea Business Centre",
-                  "Al Maktoum Rd, Al Rigga, Deira, Dubai",
-                ],
-                color: "from-red-400 to-red-600",
-              },
-              {
-                icon: Phone,
-                title: "Phone",
-                content: ["+971 56 744 5575", "+971 50 349 7213"],
-                color: "from-green-400 to-green-600",
-              },
-              {
-                icon: Mail,
-                title: "Email",
-                content: ["contact@vendoxpress.com", "sales@vendoxpress.com"],
-                color: "from-blue-400 to-blue-600",
-              },
-            ].map((item, index) => (
-              <Card
-                key={index}
-                className="group text-center hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:bg-white transform hover:-translate-y-2"
-              >
-                <CardContent className="pt-8">
-                  <div
-                    className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
+            <div className="space-y-6">
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardContent className="p-6">
+                  <h4 className="font-bold text-white mb-2">Sales & Partnerships</h4>
+                  <p className="text-white/80 text-sm mb-3">New partnerships and business opportunities</p>
+                  <Button
+                    onClick={handleSalesContact}
+                    className="w-full bg-white/20 hover:bg-white/30 text-white border-0"
                   >
-                    <item.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-normal text-lg mb-4 text-gray-900 font-arapey">{item.title}</h3>
-                  <div className="text-gray-600 space-y-1">
-                    {item.content.map((line, i) => (
-                      <p key={i} className="leading-relaxed text-sm font-light">
-                        {line}
-                      </p>
-                    ))}
-                  </div>
+                    <Mail className="w-4 h-4 mr-2" />
+                    sales@vendoxpress.com
+                  </Button>
+                  <p className="text-white/80 text-sm mt-2">+971 56 744 5575</p>
                 </CardContent>
               </Card>
-            ))}
+
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardContent className="p-6">
+                  <h4 className="font-bold text-white mb-2">General Inquiries</h4>
+                  <p className="text-white/80 text-sm mb-3">General questions and information</p>
+                  <Button
+                    onClick={handleGeneralContact}
+                    className="w-full bg-white/20 hover:bg-white/30 text-white border-0"
+                  >
+                    <Mail className="w-4 h-4 mr-2" />
+                    contact@vendoxpress.com
+                  </Button>
+                  <p className="text-white/80 text-sm mt-2">+971 50 349 7213</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-12 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-600"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-6 group">
-              <img
-                src="/images/vendoxpress-logo-new.png"
-                alt="VendoXpress Logo"
-                className="h-12 w-auto group-hover:scale-110 transition-transform duration-300 filter invert"
-              />
+      <footer className="bg-white py-12 border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <img src="/images/vendoxpress-logo-new.png" alt="VendoXpress Logo" className="h-10 w-auto mb-4" />
+              <p className="text-gray-600 text-sm leading-relaxed">
+                UAE's leading provider of innovative vending solutions with zero-investment partnerships.
+              </p>
+              <Button
+                onClick={handleSalesContact}
+                className="mt-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Get Started
+              </Button>
             </div>
-            <p className="text-gray-400 mb-6 text-base font-extralight max-w-2xl mx-auto leading-relaxed">
-              VENDOXPRESS FOR SELLING PRODUCTS & SERVICES BY AUTOMATIC VENDING MACHINES CO. L.L.C
-            </p>
+
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4">Products</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>Massage Chairs</li>
+                <li>Photo Booths</li>
+                <li>Boxing Arcade</li>
+                <li>Coffee Machines</li>
+                <li>Gaming Machines</li>
+                <li>Smart Vending</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4">Services</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>Free Installation</li>
+                <li>Complete Maintenance</li>
+                <li>24/7 Support</li>
+                <li>Real-time Analytics</li>
+                <li>Revenue Optimization</li>
+                <li>Partnership Management</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4">Contact</h4>
+              <div className="space-y-2 text-sm text-gray-600">
+                <p>Office 202, 2nd Floor</p>
+                <p>Bright Idea Business Centre</p>
+                <p>Al Maktoum Rd, Deira, Dubai</p>
+                <p className="pt-2">+971 56 744 5575</p>
+                <Button
+                  onClick={handleSalesContact}
+                  variant="link"
+                  className="p-0 h-auto text-sm text-pink-600 hover:text-pink-700"
+                >
+                  sales@vendoxpress.com
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-100 mt-8 pt-8 text-center">
             <p className="text-gray-500 text-sm">© {new Date().getFullYear()} VendoXpress LLC. All rights reserved.</p>
           </div>
         </div>
