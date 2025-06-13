@@ -21,6 +21,7 @@ import {
   Settings,
   DollarSign,
   Mail,
+  Star,
 } from "lucide-react"
 import { useState, useEffect } from "react"
 
@@ -76,7 +77,7 @@ export default function VendoXpressLanding() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-pink-100">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-            <img src="/images/vendoxpress-logo-new.png" alt="VendoXpress Logo" className="h-10 w-auto" />
+            <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-10 w-auto" />
           </div>
           <div className="hidden md:flex items-center space-x-8">
             {["About", "Products", "Services", "Partnership"].map((item) => (
@@ -101,64 +102,131 @@ export default function VendoXpressLanding() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
-        <div className="container mx-auto px-4 relative z-10 pt-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 pt-16">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-pink-300/20 to-purple-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Left Content - Enhanced */}
             <div
-              className={`transform transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+              className={`lg:col-span-6 transform transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
             >
-              <Badge className="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium mb-6 px-6 py-3 rounded-full shadow-lg transition-all duration-500 text-base">
-                <Sparkles className="w-5 h-5 mr-2" />
-                Smart Vending Solutions
-              </Badge>
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 font-protest">
-                Profitable, <span className="animated-gradient">innovative</span> vending machines
-              </h1>
-              <p className="text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
-                Transform your space into a revenue generator with zero investment. From massage chairs to gaming
-                machines - we handle everything.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  onClick={handleSalesContact}
-                  size="lg"
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-10 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
-                >
-                  Start Partnership
-                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-pink-500 text-pink-600 hover:bg-pink-50 font-semibold px-10 py-4 rounded-full transition-all duration-500 text-lg"
-                >
-                  View Products
-                </Button>
+              <div className="relative">
+                {/* Decorative Elements */}
+                <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full blur-md"></div>
+                <div className="absolute -bottom-5 -right-5 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-md"></div>
+
+                {/* Badge */}
+                <Badge className="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium mb-6 px-6 py-3 rounded-full shadow-lg transition-all duration-500 text-base inline-flex items-center">
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  <span className="hidden sm:inline">Premium Vending Solutions</span>
+                  <span className="sm:hidden">Premium Solutions</span>
+                </Badge>
+
+                {/* Main Heading - Responsive */}
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight text-gray-900 font-protest">
+                  Turn space into{" "}
+                  <span className="relative inline-block">
+                    <span className="relative z-10 text-pink-600">passive income</span>
+                    <span className="absolute -bottom-2 left-0 right-0 h-3 bg-purple-200/60 -rotate-1 transform -skew-x-3"></span>
+                  </span>
+                </h1>
+
+                {/* Featured Benefits */}
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <div className="bg-white/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs sm:text-sm font-medium text-pink-600 flex items-center">
+                    <Star className="w-3 h-3 mr-1 text-pink-500" /> Zero Investment
+                  </div>
+                  <div className="bg-white/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs sm:text-sm font-medium text-purple-600 flex items-center">
+                    <Star className="w-3 h-3 mr-1 text-purple-500" /> Guaranteed Revenue
+                  </div>
+                  <div className="bg-white/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs sm:text-sm font-medium text-blue-600 flex items-center">
+                    <Star className="w-3 h-3 mr-1 text-blue-500" /> Full Maintenance
+                  </div>
+                </div>
+
+                {/* Description - Responsive */}
+                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 leading-relaxed font-light max-w-xl">
+                  Generate revenue from your unused space at zero cost. We provide, install, and maintain premium
+                  vending machines while you collect the profits.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    onClick={handleSalesContact}
+                    size="lg"
+                    className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-2xl transition-all duration-500 group text-base sm:text-lg"
+                  >
+                    Start Earning Today
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-pink-500 text-pink-600 hover:bg-pink-50 font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-500 text-base sm:text-lg"
+                  >
+                    Explore Solutions
+                  </Button>
+                </div>
               </div>
             </div>
 
-            {/* Right Content - Product Showcase */}
+            {/* Right Content - Enhanced Product Showcase */}
             <div
-              className={`transform transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
+              className={`lg:col-span-6 transform transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
             >
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/20 to-purple-600/20 rounded-3xl blur-xl"></div>
-                <img
-                  src="/images/massage-chair-features.png"
-                  alt="VendoXpress Vending Solutions"
-                  className="relative w-full max-w-lg mx-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500"
-                />
+                {/* Glow Effect */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/30 to-purple-600/30 rounded-3xl blur-xl"></div>
+
+                {/* Main Image with Frame */}
+                <div className="relative bg-gradient-to-r from-pink-500 to-purple-600 p-1 rounded-3xl shadow-2xl">
+                  <img
+                    src="/images/massage-chair-features.png"
+                    alt="VendoXpress Vending Solutions"
+                    className="w-full rounded-2xl shadow-inner transform hover:scale-[1.02] transition-all duration-500"
+                  />
+
+                  {/* Floating Stats */}
+                  <div className="absolute -top-5 -left-5 bg-white rounded-2xl shadow-xl p-3 transform rotate-3 hover:rotate-0 transition-all duration-300">
+                    <div className="text-xs text-gray-500">Monthly Revenue</div>
+                    <div className="text-lg font-bold text-pink-600">+25%</div>
+                  </div>
+
+                  <div className="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-xl p-3 transform -rotate-3 hover:rotate-0 transition-all duration-300">
+                    <div className="text-xs text-gray-500">Customer Satisfaction</div>
+                    <div className="text-lg font-bold text-purple-600">98%</div>
+                  </div>
+                </div>
+
+                {/* Product Tags */}
+                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2">
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-pink-600 shadow-md">
+                    Massage Chairs
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-purple-600 shadow-md">
+                    Photo Booths
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-blue-600 shadow-md">
+                    Gaming Machines
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-pink-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-pink-500 rounded-full mt-2 animate-pulse"></div>
+          {/* Scroll Indicator - Enhanced */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            <span className="text-sm text-gray-500 mb-2">Discover More</span>
+            <div className="w-6 h-10 border-2 border-pink-400 rounded-full flex justify-center animate-bounce">
+              <div className="w-1 h-3 bg-pink-500 rounded-full mt-2 animate-pulse"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -169,8 +237,8 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div>
-              <h3 className="text-2xl font-bold mb-2 font-protest">Ready to earn passive income?</h3>
-              <p className="text-purple-200">500+ partners already generating revenue daily</p>
+              <h3 className="text-2xl font-bold mb-2 font-protest">Ready to unlock hidden revenue?</h3>
+              <p className="text-purple-200">Join 500+ partners already profiting from their unused space</p>
             </div>
             <Button
               onClick={handleSalesContact}
@@ -192,12 +260,13 @@ export default function VendoXpressLanding() {
                 About VendoXpress
               </Badge>
               <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
-                Your vending solution delivered instantly
+                Zero investment, maximum returns
               </h2>
 
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                VendoXpress transforms spaces into profit centers with zero investment from partners. We handle
-                installation, maintenance, and operations while you earn monthly revenue.
+                VendoXpress transforms your unused space into a profitable asset with no financial risk. We provide
+                premium vending machines, handle all installation and maintenance, while you simply collect your share
+                of the revenue.
               </p>
 
               {/* Stats */}
@@ -220,7 +289,7 @@ export default function VendoXpressLanding() {
                 onClick={handleSalesContact}
                 className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-500"
               >
-                Start Earning Today
+                Become a Partner
               </Button>
             </div>
 
@@ -242,10 +311,11 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
-              Diverse vending solutions
+              Premium vending solutions
             </h2>
             <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto">
-              From wellness to entertainment, our machines generate revenue in any location.
+              From wellness to entertainment, our state-of-the-art machines deliver exceptional experiences and generate
+              consistent revenue in any location.
             </p>
           </div>
 
@@ -299,7 +369,7 @@ export default function VendoXpressLanding() {
               {
                 icon: "💆‍♀️",
                 title: "Massage Chairs",
-                desc: "Premium wellness experiences with AI-powered programs and cashless payments",
+                desc: "Luxurious wellness experiences with AI-powered massage programs and contactless payment options",
                 image: "/images/massage-chair-product.png",
                 features: ["AI massage programs", "Zero gravity", "Heated therapy", "Mobile payments"],
                 color: "from-pink-400 to-pink-600",
@@ -307,7 +377,7 @@ export default function VendoXpressLanding() {
               {
                 icon: "📸",
                 title: "Photo Booths",
-                desc: "Interactive entertainment with instant printing and social media sharing",
+                desc: "Interactive entertainment with instant printing, digital sharing, and customizable experiences",
                 image: "/images/photo-booth-product.png",
                 features: ["4K cameras", "Social sharing", "Custom branding", "Green screen"],
                 color: "from-blue-400 to-blue-600",
@@ -315,7 +385,7 @@ export default function VendoXpressLanding() {
               {
                 icon: "🥊",
                 title: "Boxing Arcade",
-                desc: "High-energy gaming with strength testing and competitive scoring",
+                desc: "High-energy gaming with precision strength measurement and competitive leaderboards",
                 image: "/images/boxing-arcade-product.png",
                 features: ["Strength measurement", "Leaderboards", "LED displays", "Sound effects"],
                 color: "from-purple-400 to-purple-600",
@@ -323,7 +393,7 @@ export default function VendoXpressLanding() {
               {
                 icon: "☕",
                 title: "Coffee Machines",
-                desc: "Gourmet coffee with fresh grinding and multiple beverage options",
+                desc: "Premium coffee experiences with fresh bean grinding and customizable beverage options",
                 image: "/images/coffee-machine-product.png",
                 features: ["Fresh grinding", "15+ options", "Temperature control", "Milk frothing"],
                 color: "from-amber-400 to-amber-600",
@@ -331,7 +401,7 @@ export default function VendoXpressLanding() {
               {
                 icon: "🎮",
                 title: "Gaming Machines",
-                desc: "Interactive entertainment with touch screens and prize dispensing",
+                desc: "Cutting-edge arcade experiences with touchscreen interfaces and exciting prize systems",
                 image: "/images/gaming-machine-product.png",
                 features: ["Touch interface", "Multiplayer", "Prize system", "All ages"],
                 color: "from-green-400 to-green-600",
@@ -339,7 +409,7 @@ export default function VendoXpressLanding() {
               {
                 icon: "🍿",
                 title: "Smart Vending",
-                desc: "Intelligent food and beverage machines with inventory tracking",
+                desc: "Next-generation food and beverage dispensing with inventory tracking and remote monitoring",
                 image: "/images/smart-vending-product.png",
                 features: ["Temperature zones", "Healthy options", "Smart alerts", "Nutrition info"],
                 color: "from-orange-400 to-orange-600",
@@ -408,10 +478,10 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
-              Four simple steps
+              Four steps to passive income
             </h2>
             <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto">
-              From contact to earning revenue - our process is designed for speed and simplicity.
+              Our streamlined process takes you from inquiry to income with minimal effort on your part.
             </p>
           </div>
 
@@ -420,25 +490,25 @@ export default function VendoXpressLanding() {
               {
                 step: "Step 1",
                 title: "Contact",
-                desc: "Reach out to discuss your space and goals",
+                desc: "Reach out to discuss your available space and business goals",
                 image: "/images/massage-chair-hero.png",
               },
               {
                 step: "Step 2",
                 title: "Assessment",
-                desc: "We evaluate your location and recommend solutions",
+                desc: "Our team evaluates your location and recommends optimal solutions",
                 image: "/images/business-locations.png",
               },
               {
                 step: "Step 3",
                 title: "Installation",
-                desc: "Professional setup with minimal disruption",
+                desc: "Professional setup with minimal disruption to your operations",
                 image: "/images/partnership-success.png",
               },
               {
                 step: "Step 4",
-                title: "Earn",
-                desc: "Start generating revenue immediately",
+                title: "Profit",
+                desc: "Start receiving your share of the revenue immediately",
                 image: "/images/massage-chair-features.png",
               },
             ].map((item, index) => (
@@ -466,7 +536,7 @@ export default function VendoXpressLanding() {
               size="lg"
               className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-12 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
             >
-              Start Your Journey
+              Begin Your Journey
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
@@ -478,10 +548,11 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
-              Fully automated solutions
+              Smart technology, effortless profits
             </h2>
             <p className="text-xl text-gray-600 font-light max-w-4xl mx-auto">
-              Smart technology ensures optimal performance and maximum profitability with minimal effort.
+              Our advanced vending solutions leverage cutting-edge technology to maximize performance and revenue with
+              minimal oversight.
             </p>
           </div>
 
@@ -490,26 +561,26 @@ export default function VendoXpressLanding() {
               {[
                 {
                   icon: Zap,
-                  title: "Smart Control",
-                  desc: "IoT technology for remote monitoring and maintenance",
-                  color: "from-blue-400 to-blue-600",
+                  title: "Smart Monitoring",
+                  desc: "IoT technology for real-time performance tracking and maintenance alerts",
+                  color: "from-pink-400 to-pink-600",
                 },
                 {
                   icon: Heart,
                   title: "User Experience",
-                  desc: "Intuitive interfaces with multi-language support",
-                  color: "from-pink-400 to-pink-600",
+                  desc: "Intuitive interfaces with multi-language support for broader appeal",
+                  color: "from-purple-400 to-purple-600",
                 },
                 {
                   icon: Shield,
                   title: "Secure Payments",
-                  desc: "Bank-grade security with contactless options",
-                  color: "from-green-400 to-green-600",
+                  desc: "Bank-grade security with multiple contactless payment options",
+                  color: "from-blue-400 to-blue-600",
                 },
                 {
                   icon: BarChart3,
-                  title: "Real-time Analytics",
-                  desc: "Comprehensive reporting and insights",
+                  title: "Revenue Analytics",
+                  desc: "Detailed performance reports and optimization recommendations",
                   color: "from-purple-400 to-purple-600",
                 },
               ].map((feature, index) => (
@@ -545,7 +616,7 @@ export default function VendoXpressLanding() {
               className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-12 py-4 rounded-full shadow-2xl transition-all duration-500 group text-lg"
             >
               <Mail className="w-5 h-5 mr-2" />
-              Learn About Technology
+              Discover Our Technology
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
@@ -557,10 +628,11 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-protest">
-              Why choose VendoXpress
+              Why partner with VendoXpress
             </h2>
             <p className="text-xl text-gray-600 font-light max-w-4xl mx-auto">
-              Zero investment, guaranteed support, and proven results make us the perfect partner.
+              Our risk-free business model delivers consistent passive income with zero investment and complete
+              operational support.
             </p>
           </div>
 
@@ -569,37 +641,37 @@ export default function VendoXpressLanding() {
               {
                 icon: DollarSign,
                 title: "Zero Investment",
-                desc: "No upfront costs or equipment fees. We handle everything.",
+                desc: "No upfront costs, equipment fees, or financial risk. We handle all expenses.",
                 color: "from-green-400 to-green-600",
               },
               {
                 icon: TrendingUp,
                 title: "Guaranteed Revenue",
-                desc: "Proven model with consistent monthly income sharing.",
+                desc: "Proven business model with consistent monthly income sharing.",
                 color: "from-blue-400 to-blue-600",
               },
               {
                 icon: Settings,
                 title: "Complete Support",
-                desc: "Full maintenance, updates, and 24/7 monitoring included.",
+                desc: "Full maintenance, technical updates, and 24/7 monitoring included.",
                 color: "from-purple-400 to-purple-600",
               },
               {
                 icon: Clock,
-                title: "Quick Setup",
-                desc: "Installation completed within 24-48 hours.",
+                title: "Rapid Deployment",
+                desc: "Professional installation completed within 24-48 hours.",
                 color: "from-orange-400 to-orange-600",
               },
               {
                 icon: BarChart3,
-                title: "Performance Tracking",
-                desc: "Real-time analytics and detailed monthly reports.",
+                title: "Performance Insights",
+                desc: "Real-time analytics and detailed monthly performance reports.",
                 color: "from-red-400 to-red-600",
               },
               {
                 icon: Shield,
-                title: "Risk-free",
-                desc: "Flexible terms with performance guarantees.",
+                title: "Risk-Free Partnership",
+                desc: "Flexible terms with performance guarantees and no long-term commitment.",
                 color: "from-yellow-400 to-yellow-600",
               },
             ].map((benefit, index) => (
@@ -645,7 +717,7 @@ export default function VendoXpressLanding() {
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight font-protest">Ready to start earning?</h2>
             <p className="text-xl text-purple-200 font-light">
-              Get personalized consultation and launch your vending business today
+              Get a personalized consultation and launch your passive income stream today
             </p>
           </div>
 
@@ -698,37 +770,35 @@ export default function VendoXpressLanding() {
               </CardContent>
             </Card>
 
-            <div className="space-y-6">
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-                <CardContent className="p-6">
-                  <h4 className="font-bold text-white mb-2">Sales & Partnerships</h4>
-                  <p className="text-white/80 text-sm mb-3">New partnerships and business opportunities</p>
-                  <Button
-                    onClick={handleSalesContact}
-                    className="w-full bg-white/20 hover:bg-white/30 text-white border-0"
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    sales@vendoxpress.com
-                  </Button>
-                  <p className="text-white/80 text-sm mt-2">+971 56 744 5575</p>
-                </CardContent>
-              </Card>
+            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold mb-4 text-white font-protest">Contact Us</h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-white/90 mb-2">Email</h4>
+                    <Button
+                      onClick={handleSalesContact}
+                      className="w-full bg-white/20 hover:bg-white/30 text-white border-0"
+                    >
+                      <Mail className="w-4 h-4 mr-2" />
+                      sales@vendoxpress.com
+                    </Button>
+                  </div>
 
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-                <CardContent className="p-6">
-                  <h4 className="font-bold text-white mb-2">General Inquiries</h4>
-                  <p className="text-white/80 text-sm mb-3">General questions and information</p>
-                  <Button
-                    onClick={handleGeneralContact}
-                    className="w-full bg-white/20 hover:bg-white/30 text-white border-0"
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    contact@vendoxpress.com
-                  </Button>
-                  <p className="text-white/80 text-sm mt-2">+971 50 349 7213</p>
-                </CardContent>
-              </Card>
-            </div>
+                  <div>
+                    <h4 className="font-medium text-white/90 mb-2">Phone</h4>
+                    <p className="text-white text-lg font-medium">+971 50 349 7213</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium text-white/90 mb-2">Office</h4>
+                    <p className="text-white/80">Office 202, 2nd Floor</p>
+                    <p className="text-white/80">Bright Idea Business Centre</p>
+                    <p className="text-white/80">Al Maktoum Rd, Deira, Dubai</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -738,9 +808,9 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <img src="/images/vendoxpress-logo-new.png" alt="VendoXpress Logo" className="h-10 w-auto mb-4" />
+              <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-12 w-auto mb-4" />
               <p className="text-gray-600 text-sm leading-relaxed">
-                UAE's leading provider of innovative vending solutions with zero-investment partnerships.
+                UAE's leading provider of premium vending solutions with zero-investment partnership opportunities.
               </p>
               <Button
                 onClick={handleSalesContact}
@@ -781,7 +851,7 @@ export default function VendoXpressLanding() {
                 <p>Office 202, 2nd Floor</p>
                 <p>Bright Idea Business Centre</p>
                 <p>Al Maktoum Rd, Deira, Dubai</p>
-                <p className="pt-2">+971 56 744 5575</p>
+                <p className="pt-2">+971 50 349 7213</p>
                 <Button
                   onClick={handleSalesContact}
                   variant="link"
