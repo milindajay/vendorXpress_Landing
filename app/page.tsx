@@ -222,7 +222,7 @@ export default function VendoXpressLanding() {
           </div>
 
           {/* Scroll Indicator - Enhanced */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          <div className="absolute bottom-[-120px] left-1/2 transform -translate-x-1/2 flex flex-col items-center">
             <span className="text-sm text-gray-500 mb-2">Discover More</span>
             <div className="w-6 h-10 border-2 border-pink-400 rounded-full flex justify-center animate-bounce">
               <div className="w-1 h-3 bg-pink-500 rounded-full mt-2 animate-pulse"></div>
@@ -370,7 +370,7 @@ export default function VendoXpressLanding() {
                 icon: "💆‍♀️",
                 title: "Massage Chairs",
                 desc: "Luxurious wellness experiences with AI-powered massage programs and contactless payment options",
-                image: "/images/massage-chair-product.png",
+                image: "/images/massage-chair.png",
                 features: ["AI massage programs", "Zero gravity", "Heated therapy", "Mobile payments"],
                 color: "from-pink-400 to-pink-600",
               },
@@ -378,7 +378,7 @@ export default function VendoXpressLanding() {
                 icon: "📸",
                 title: "Photo Booths",
                 desc: "Interactive entertainment with instant printing, digital sharing, and customizable experiences",
-                image: "/images/photo-booth-product.png",
+                image: "/images/photobooth.png",
                 features: ["4K cameras", "Social sharing", "Custom branding", "Green screen"],
                 color: "from-blue-400 to-blue-600",
               },
@@ -386,7 +386,7 @@ export default function VendoXpressLanding() {
                 icon: "🥊",
                 title: "Boxing Arcade",
                 desc: "High-energy gaming with precision strength measurement and competitive leaderboards",
-                image: "/images/boxing-arcade-product.png",
+                image: "/images/boxing-arcade.png",
                 features: ["Strength measurement", "Leaderboards", "LED displays", "Sound effects"],
                 color: "from-purple-400 to-purple-600",
               },
@@ -394,7 +394,7 @@ export default function VendoXpressLanding() {
                 icon: "☕",
                 title: "Coffee Machines",
                 desc: "Premium coffee experiences with fresh bean grinding and customizable beverage options",
-                image: "/images/coffee-machine-product.png",
+                image: "/images/coffee-vending.png",
                 features: ["Fresh grinding", "15+ options", "Temperature control", "Milk frothing"],
                 color: "from-amber-400 to-amber-600",
               },
@@ -402,7 +402,7 @@ export default function VendoXpressLanding() {
                 icon: "🎮",
                 title: "Gaming Machines",
                 desc: "Cutting-edge arcade experiences with touchscreen interfaces and exciting prize systems",
-                image: "/images/gaming-machine-product.png",
+                image: "/images/gaming-arcade.png",
                 features: ["Touch interface", "Multiplayer", "Prize system", "All ages"],
                 color: "from-green-400 to-green-600",
               },
@@ -410,7 +410,7 @@ export default function VendoXpressLanding() {
                 icon: "🍿",
                 title: "Smart Vending",
                 desc: "Next-generation food and beverage dispensing with inventory tracking and remote monitoring",
-                image: "/images/smart-vending-product.png",
+                image: "/images/smart-vending.png",
                 features: ["Temperature zones", "Healthy options", "Smart alerts", "Nutrition info"],
                 color: "from-orange-400 to-orange-600",
               },
