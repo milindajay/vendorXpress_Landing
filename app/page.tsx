@@ -113,12 +113,11 @@ export default function VendoXpressLanding() {
   }, [emblaApi, setScrollSnaps, onSelect, startAutoplay, stopAutoplay])
 
   const productCarouselImages = [
-    { src: "/images/massage-chair.png", alt: "Massage Chair" },
-    { src: "/images/photobooth.png", alt: "Photo Booth" },
-    { src: "/images/boxing-arcade.png", alt: "Boxing Arcade" },
-    { src: "/images/coffee-vending.png", alt: "Coffee Machine" },
-    { src: "/images/gaming-arcade.png", alt: "Gaming Machine" },
-    { src: "/images/smart-vending.png", alt: "Smart Vending Machine" },
+    { src: "/images/slider/slider-1.jpg", alt: "Massage Chair" },
+    { src: "/images/slider/slider-2.jpg", alt: "Massage Chair" },
+    { src: "/images/slider/slider-3.jpg", alt: "Massage Chair" },
+    { src: "/images/slider/slider-4.jpg", alt: "Massage Chair" },
+
   ]
 
   return (
@@ -388,9 +387,9 @@ export default function VendoXpressLanding() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/20 to-purple-600/20 rounded-3xl blur-xl"></div>
               <img
-                src="/images/business-locations.png"
+                src="/images/image-3.jpg"
                 alt="VendoXpress Business Solutions"
-                className="relative w-full rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500"
+                className="relative w-full rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500"
               />
             </div>
           </div>
@@ -475,9 +474,9 @@ export default function VendoXpressLanding() {
               },
               {
                 icon: "🥊",
-                title: "Boxing Arcade",
+                title: "Arcade Machine",
                 desc: "High-energy gaming with precision strength measurement and competitive leaderboards",
-                image: "/images/boxing-arcade.png",
+                image: "/images/arcade-machine.jpg",
                 features: ["Strength measurement", "Leaderboards", "LED displays", "Sound effects"],
                 color: "from-purple-400 to-purple-600",
               },
@@ -558,25 +557,25 @@ export default function VendoXpressLanding() {
                 step: "Step 1",
                 title: "Contact",
                 desc: "Reach out to discuss your available space and business goals",
-                image: "/images/massage-chair-hero.png",
+                image: "/images/contact.jpg",
               },
               {
                 step: "Step 2",
                 title: "Assessment",
                 desc: "Our team evaluates your location and recommends optimal solutions",
-                image: "/images/business-locations.png",
+                image: "/images/assessment.jpg",
               },
               {
                 step: "Step 3",
                 title: "Installation",
                 desc: "Professional setup with minimal disruption to your operations",
-                image: "/images/partnership-success.png",
+                image: "/images/installation.jpg",
               },
               {
                 step: "Step 4",
                 title: "Profit",
                 desc: "Start receiving your share of the revenue immediately",
-                image: "/images/massage-chair-features.png",
+                image: "/images/profit.jpg",
               },
             ].map((item, index) => (
               <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-0 overflow-hidden">
@@ -668,7 +667,7 @@ export default function VendoXpressLanding() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/20 to-purple-600/20 rounded-3xl blur-xl"></div>
               <img
-                src="/images/partnership-success.png"
+                src="/images/profit-share.jpg"
                 alt="Customer using VendoXpress machine"
                 className="relative w-full rounded-3xl shadow-2xl"
               />
