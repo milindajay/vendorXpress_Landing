@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 import {
   ArrowRight,
   Sparkles,
@@ -77,7 +78,9 @@ export default function VendoXpressLanding() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-pink-100">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-            <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-10 w-auto" />
+            <Link href="/">
+              <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-10 w-auto" />
+            </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             {["About", "Products", "Services", "Partnership"].map((item) => (
@@ -201,7 +204,7 @@ export default function VendoXpressLanding() {
 
                   <div className="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-xl p-3 transform -rotate-3 hover:rotate-0 transition-all duration-300">
                     <div className="text-xs text-gray-500">Customer Satisfaction</div>
-                    <div className="text-lg font-bold text-purple-600">98%</div>
+                    <div className="text-lg font-bold text-purple-600">100%</div>
                   </div>
                 </div>
 
@@ -214,7 +217,7 @@ export default function VendoXpressLanding() {
                     Photo Booths
                   </div>
                   <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-blue-600 shadow-md">
-                    Gaming Machines
+                    Arcade Machines
                   </div>
                 </div>
               </div>
@@ -346,7 +349,7 @@ export default function VendoXpressLanding() {
                 </div>
                 <div className="absolute top-60 right-1/3 floating-shape">
                   <div className="w-18 h-18 bg-gradient-to-r from-green-400 to-green-600 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg p-2">
-                    ☕
+                    🎱
                   </div>
                 </div>
                 <div className="absolute top-32 left-1/2 floating-shape-slow">
@@ -356,7 +359,7 @@ export default function VendoXpressLanding() {
                 </div>
                 <div className="absolute top-16 left-1/3 floating-shape-fast">
                   <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white text-lg shadow-lg">
-                    🍿
+                    🎰
                   </div>
                 </div>
               </div>
@@ -389,30 +392,6 @@ export default function VendoXpressLanding() {
                 image: "/images/boxing-arcade.png",
                 features: ["Strength measurement", "Leaderboards", "LED displays", "Sound effects"],
                 color: "from-purple-400 to-purple-600",
-              },
-              {
-                icon: "☕",
-                title: "Coffee Machines",
-                desc: "Premium coffee experiences with fresh bean grinding and customizable beverage options",
-                image: "/images/coffee-vending.png",
-                features: ["Fresh grinding", "15+ options", "Temperature control", "Milk frothing"],
-                color: "from-amber-400 to-amber-600",
-              },
-              {
-                icon: "🎮",
-                title: "Gaming Machines",
-                desc: "Cutting-edge arcade experiences with touchscreen interfaces and exciting prize systems",
-                image: "/images/gaming-arcade.png",
-                features: ["Touch interface", "Multiplayer", "Prize system", "All ages"],
-                color: "from-green-400 to-green-600",
-              },
-              {
-                icon: "🍿",
-                title: "Smart Vending",
-                desc: "Next-generation food and beverage dispensing with inventory tracking and remote monitoring",
-                image: "/images/smart-vending.png",
-                features: ["Temperature zones", "Healthy options", "Smart alerts", "Nutrition info"],
-                color: "from-orange-400 to-orange-600",
               },
             ].map((product, index) => (
               <Card
@@ -808,7 +787,9 @@ export default function VendoXpressLanding() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-12 w-auto mb-4" />
+              <Link href="/">
+                <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-12 w-auto mb-4" />
+              </Link>
               <p className="text-gray-600 text-sm leading-relaxed">
                 UAE's leading provider of premium vending solutions with zero-investment partnership opportunities.
               </p>
@@ -827,9 +808,6 @@ export default function VendoXpressLanding() {
                 <li>Massage Chairs</li>
                 <li>Photo Booths</li>
                 <li>Boxing Arcade</li>
-                <li>Coffee Machines</li>
-                <li>Gaming Machines</li>
-                <li>Smart Vending</li>
               </ul>
             </div>
 
