@@ -244,11 +244,11 @@ export default function VendoXpressLanding() {
             >
               <div className="relative">
                 {/* Glow Effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/30 to-purple-600/30 rounded-3xl blur-xl"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/30 to-purple-600/30 rounded-2xl blur-xl"></div>
 
                 {/* Main Image Carousel with Frame */}
                 <div
-                  className="relative bg-gradient-to-r from-pink-500 to-purple-600 p-1 rounded-3xl shadow-2xl"
+                  className="relative bg-gradient-to-r from-pink-500 to-purple-600 p-1 rounded-2xl shadow-2xl"
                   onMouseEnter={stopAutoplay} // Pause on hover
                   onMouseLeave={startAutoplay} // Resume on mouse leave
                 >
@@ -271,17 +271,7 @@ export default function VendoXpressLanding() {
                     </div>
                   </div>
 
-                  {/* Carousel Dots */}
-                  <div className="embla__dots flex justify-center mt-4 space-x-2">
-                    {scrollSnaps.map((_, index) => (
-                      <button
-                        key={index}
-                        className={`embla__dot w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex ? "bg-pink-500 scale-125" : "bg-gray-300 hover:bg-gray-400"}`}
-                        onClick={() => scrollTo(index)}
-                        aria-label={`Go to slide ${index + 1}`}
-                      />
-                    ))}
-                  </div>
+
 
                   {/* Floating Stats */}
                   <div className="absolute -top-5 -left-5 bg-white rounded-2xl shadow-xl p-3 transform rotate-3 hover:rotate-0 transition-all duration-300">
