@@ -24,7 +24,9 @@ import {
   Mail,
   Star,
 } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, useRef } from "react" // Import useRef
+import useEmblaCarousel from "embla-carousel-react"
+import Image from "next/image"
 
 export default function VendoXpressLanding() {
   const [formData, setFormData] = useState({
@@ -57,10 +59,67 @@ export default function VendoXpressLanding() {
       "mailto:sales@vendoxpress.com?subject=Partnership Inquiry&body=Hello, I'm interested in learning more about VendoXpress partnership opportunities."
   }
 
-  const handleGeneralContact = () => {
-    window.location.href =
-      "mailto:contact@vendoxpress.com?subject=General Inquiry&body=Hello, I would like to know more about VendoXpress services."
-  }
+  // Carousel setup with Autoplay
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null) // Ref for autoplay interval
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      emblaApi && emblaApi.scrollTo(index)
+    },
+    [emblaApi],
+  )
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi, setSelectedIndex])
+
+  const startAutoplay = useCallback(() => {
+    if (emblaApi) {
+      autoplayRef.current = setInterval(() => {
+        emblaApi.scrollNext()
+      }, 3000) // Change image every 3 seconds
+    }
+  }, [emblaApi])
+
+  const stopAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current)
+      autoplayRef.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    onSelect()
+    setScrollSnaps(emblaApi.scrollSnapList())
+    emblaApi.on("select", onSelect)
+    emblaApi.on("reInit", onSelect)
+
+    // Start autoplay when component mounts
+    startAutoplay()
+
+    // Clean up interval on component unmount
+    return () => {
+      stopAutoplay()
+      emblaApi.off("select", onSelect)
+      emblaApi.off("reInit", onSelect)
+    }
+  }, [emblaApi, setScrollSnaps, onSelect, startAutoplay, stopAutoplay])
+
+  const productCarouselImages = [
+    { src: "/images/massage-chair.png", alt: "Massage Chair" },
+    { src: "/images/photobooth.png", alt: "Photo Booth" },
+    { src: "/images/boxing-arcade.png", alt: "Boxing Arcade" },
+    { src: "/images/coffee-vending.png", alt: "Coffee Machine" },
+    { src: "/images/gaming-arcade.png", alt: "Gaming Machine" },
+    { src: "/images/smart-vending.png", alt: "Smart Vending Machine" },
+  ]
 
   return (
     <div className="min-h-screen bg-white font-inter overflow-x-hidden">
@@ -180,7 +239,7 @@ export default function VendoXpressLanding() {
               </div>
             </div>
 
-            {/* Right Content - Enhanced Product Showcase */}
+            {/* Right Content - Enhanced Product Showcase with Carousel */}
             <div
               className={`lg:col-span-6 transform transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
             >
@@ -188,13 +247,42 @@ export default function VendoXpressLanding() {
                 {/* Glow Effect */}
                 <div className="absolute -inset-4 bg-gradient-to-r from-pink-400/30 to-purple-600/30 rounded-3xl blur-xl"></div>
 
-                {/* Main Image with Frame */}
-                <div className="relative bg-gradient-to-r from-pink-500 to-purple-600 p-1 rounded-3xl shadow-2xl">
-                  <img
-                    src="/images/massage-chair-features.png"
-                    alt="VendoXpress Vending Solutions"
-                    className="w-full rounded-2xl shadow-inner transform hover:scale-[1.02] transition-all duration-500"
-                  />
+                {/* Main Image Carousel with Frame */}
+                <div
+                  className="relative bg-gradient-to-r from-pink-500 to-purple-600 p-1 rounded-3xl shadow-2xl"
+                  onMouseEnter={stopAutoplay} // Pause on hover
+                  onMouseLeave={startAutoplay} // Resume on mouse leave
+                >
+                  <div className="embla overflow-hidden rounded-2xl">
+                    <div className="embla__viewport" ref={emblaRef}>
+                      <div className="embla__container flex">
+                        {productCarouselImages.map((image, index) => (
+                          <div className="embla__slide flex-none w-full" key={index}>
+                            <Image
+                              src={image.src || "/placeholder.svg"}
+                              alt={image.alt}
+                              width={800} // Provide explicit width
+                              height={600} // Provide explicit height
+                              className="w-full h-full object-cover shadow-inner transform hover:scale-[1.02] transition-all duration-500"
+                              priority={index === 0} // Prioritize loading the first image
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Carousel Dots */}
+                  <div className="embla__dots flex justify-center mt-4 space-x-2">
+                    {scrollSnaps.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`embla__dot w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex ? "bg-pink-500 scale-125" : "bg-gray-300 hover:bg-gray-400"}`}
+                        onClick={() => scrollTo(index)}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
 
                   {/* Floating Stats */}
                   <div className="absolute -top-5 -left-5 bg-white rounded-2xl shadow-xl p-3 transform rotate-3 hover:rotate-0 transition-all duration-300">
@@ -236,7 +324,7 @@ export default function VendoXpressLanding() {
 
       {/* Attention Banner */}
       <section className="py-6 bg-gradient-to-r from-purple-900 via-pink-900 to-blue-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZxdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZ24+PC9zdmc+')]"></div>
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div>
@@ -690,7 +778,7 @@ export default function VendoXpressLanding() {
 
       {/* Contact Form */}
       <section className="py-20 bg-gradient-to-br from-purple-900 via-pink-900 to-blue-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZxdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZ24+PC9zdmc+')]"></div>
 
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-12">
