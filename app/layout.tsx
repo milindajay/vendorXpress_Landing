@@ -10,10 +10,37 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.vendoxpress.com"), // 👈 THIS LINE FIXES THE WARNING
   title: "VendoXpress - Smart Vending Solutions UAE",
   description:
-    "Transform your business with innovative vending machines - massage chairs, photo booths, gaming, and more. Trusted partner across the UAE.",
-  generator: "v0.dev",
+    "Transform your business with innovative vending machines – massage chairs, photo booths, gaming, and more. Trusted partner across the UAE.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png"
+  },
+  openGraph: {
+    title: "VendoXpress - Smart Vending Solutions UAE",
+    description:
+      "Premium vending machines and smart solutions across the UAE. Zero investment, fully managed. Start earning passive income today!",
+    url: "https://www.vendoxpress.com",
+    siteName: "VendoXpress",
+    images: [
+      {
+        url: "/og-image.jpg", // relative path is fine now
+        width: 1200,
+        height: 630,
+        alt: "VendoXpress Smart Vending Solutions"
+      }
+    ],
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VendoXpress - Smart Vending Solutions UAE",
+    description:
+      "Transform your business with smart vending machines in the UAE. Massage chairs, arcade machines, and more with full support.",
+    images: ["/og-image.jpg"]
+  }
 }
 
 export default function RootLayout({
