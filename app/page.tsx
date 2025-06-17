@@ -133,11 +133,11 @@ export default function VendoXpressLanding() {
       </div>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-pink-100">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-primary backdrop-blur-md shadow-sm border-b border-pink-100">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
             <Link href="/">
-              <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-10 w-auto" />
+              <img src="/images/vendoxpress-logo-gold.png" alt="VendoXpress Logo" className="h-[50px] w-auto" />
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
@@ -145,7 +145,7 @@ export default function VendoXpressLanding() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-pink-600 font-medium text-sm transition-all duration-300 relative group"
+                className="text-white hover:text-pink-600 font-medium text-sm transition-all duration-300 relative group"
               >
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
@@ -451,7 +451,7 @@ export default function VendoXpressLanding() {
                 title: "Massage Chairs",
                 desc: "Luxurious wellness experiences with AI-powered massage programs and contactless payment options",
                 image: "/images/massage-chair.png",
-                features: ["AI massage programs", "Zero gravity", "Heated therapy", "Mobile payments"],
+                features: ["AI massage programs", "Zero gravity", "Wave Airbag Massage", "Mobile payments"],
                 color: "from-pink-400 to-pink-600",
               },
               {
@@ -464,7 +464,7 @@ export default function VendoXpressLanding() {
               },
               {
                 icon: "🥊",
-                title: "Arcade Machine",
+                title: "Arcade Machines",
                 desc: "High-energy gaming with precision strength measurement and competitive leaderboards",
                 image: "/images/arcade-machine.jpg",
                 features: ["Strength measurement", "Leaderboards", "LED displays", "Sound effects"],
@@ -884,7 +884,7 @@ export default function VendoXpressLanding() {
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>Massage Chairs</li>
                 <li>Photo Booths</li>
-                <li>Boxing Arcade</li>
+                <li>Arcade Machines</li>
               </ul>
             </div>
 
