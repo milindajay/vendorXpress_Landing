@@ -114,9 +114,12 @@ export default function VendoXpressLanding() {
 
   const productCarouselImages = [
     { src: "/images/slider/slider-1.jpg", alt: "Massage Chair" },
-    { src: "/images/slider/slider-2.jpg", alt: "Massage Chair" },
-    { src: "/images/slider/slider-3.jpg", alt: "Massage Chair" },
-    { src: "/images/slider/slider-4.jpg", alt: "Massage Chair" },
+    { src: "/images/slider/slider-2.png", alt: "Photo Booth" },
+    { src: "/images/slider/slider-3.jpg", alt: "Magic Hockey" },
+    { src: "/images/slider/slider-4.png", alt: "Boxing Arcade" },
+    { src: "/images/slider/slider-5.png", alt: "Arcade Machine" },
+    { src: "/images/slider/slider-6.jpg", alt: "Massage Chair" },
+    { src: "/images/slider/slider-7.jpg", alt: "Photo Booth" },
 
   ]
 
